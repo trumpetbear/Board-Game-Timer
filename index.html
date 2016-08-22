@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/jquery-3.1.0.slim.min.js"></script>
+    <script type="text/javascript">
+        function watermark(inputId, text) {
+            var inputBox = document.getElementById(inputId);
+            if (inputBox.value.length > 0) {
+                if (inputBox.value == text)
+                    inputBox.value = '';
+            } else
+                inputBox.value = text;
+        }
+    </script>
+    <title>Board Game Timer</title>
+</head>
+
+<body>
+    <div class="app">
+        <div id="divPage1">
+            <div id="divPlayers">
+                Players:
+                <select id="ddlPlayers">
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+          </select>
+                <div id="divNamesList">
+                    <input type=text id="txtName0" value="Player1" class="textbox" onfocus="watermark('txtName0','Player1');" onblur="watermark('txtName0','Player1');">
+                    <br>
+                    <input type=text id="txtName1" value="Player2" class="textbox" onfocus="watermark('txtName1','Player2');" onblur="watermark('txtName1','Player2');">
+                    <br>
+                </div>
+                <br>
+                <button id="btnNext" class="myButton">Next</button>
+            </div>
+        </div>
+		<div id="divPauseOverlay" style="display:none;" class="dimmed"></div>
+        <div id="divPage2" style="display:none;">
+            <div id="divPlayButton" class="myButton">
+                <h2 id="lblStartGame">Start Game</h2>
+            </div>
+            <div id="divEndTurnButton" class="myButton" style="display:none;">
+                <h2 id="lblEndTurn">End Turn</h2>
+                <h2 id="lblCurrentPlayer"></h2>
+                <h2 id="lblCurrentTimer"></h2>
+            </div>
+            <div id="divBottomButtons">
+                <button id="btnBack" class="myButton">Back</button>
+                <button id="btnPause" class="myButton" style="display:none;">Pause</button>
+                <button id="btnEndGame" class="myButton" style="display:none;">End Game</button>
+            </div>
+        </div>
+
+        <div id="divPage3" style="display:none;">
+            <span id="spnTimer">
+		  <div id="divTimer0">
+		  <p id="pName0"></p>      
+		  <span id="Timer0" >0.000</span>
+        </div>
+        <div id="divTimer1">
+            <p id="pName1"></p>
+            <span id="Timer1">0.000</span>
+        </div>
+        <div id="divTimer2" style="display:none;">
+            <p id="pName2"></p>
+            <span id="Timer2">0.000</span>
+        </div>
+        <div id="divTimer3" style="display:none;">
+            <p id="pName3"></p>
+            <span id="Timer3">0.000</span>
+        </div>
+        <div id="divTimer4" style="display:none;">
+            <p id="pName4"></p>
+            <span id="Timer4">0.000</span>
+        </div>
+        <div id="divTimer5" style="display:none;">
+            <p id="pName5"></p>
+            <span id="Timer5">0.000</span>
+        </div>
+        <div id="divTimer6" style="display:none;">
+            <p id="pName6"></p>
+            <span id="Timer6">0.000</span>
+        </div>
+        <div id="divTimer7" style="display:none;">
+            <p id="pName7"></p>
+            <span id="Timer7">0.000</span>
+        </div>
+        <div id="divTimer8" style="display:none;">
+            <p id="pName8"></p>
+            <span id="Timer8">0.000</span>
+        </div>
+        <div id="divTimer9" style="display:none;">
+            <p id="pName9"></p>
+            <span id="Timer9">0.000</span>
+        </div>
+        </span>
+        <button id="btnNewGame" class="myButton">New Game</button>
+    </div>
+
+    </div>
+
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>

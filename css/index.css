@@ -1,0 +1,308 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+#divPage1 {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:48%;
+    top:20%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:260px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+#divPlayers{
+	margin-bottom:20px;
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+div{
+	float:left;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+} 
+
+ .textbox {
+    padding: 1px 20px;
+    border: 0;
+    height: 25px;
+    width: 95%;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset;
+    -moz-box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset;
+    -webkit-box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset;
+    -webkit-background-clip: padding-box;
+    outline: 0;
+	margin:0 auto 5px;
+}
+
+select {
+    width: 35%;
+    margin: 0 auto 15px;
+}
+
+.myButton {
+	-moz-box-shadow: 3px 4px 0px 0px #899599;
+	-webkit-box-shadow: 3px 4px 0px 0px #899599;
+	box-shadow: 3px 4px 0px 0px #899599;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+	background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+	background-color:#ededed;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:1px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+	margin: 5px 0 0 0;
+	width:75%;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+	background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+	background-color:#bab1ba;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#divPlayButton{
+	width: 81%;
+    margin: 2% 2% 0;
+    position: absolute;
+    height: 86%;
+	background:linear-gradient(to bottom, #113c15 5%, #1ac127 100%);
+	text-align:center;
+}
+#divPlayButton:hover {
+	background:linear-gradient(to bottom, #1ac127 5%, #113c15 100%);
+}
+
+#divPlayButton:active {
+	background:linear-gradient(to bottom, #1ac127 5%, #113c15 100%);
+}
+
+#lblStartGame{
+	margin-top:85%;
+}
+
+#lblEndTurn{
+	margin-top:64%;
+}
+
+#divEndTurnButton{
+	width: 81%;
+    margin: 2% 2% 0;
+    position: absolute;
+    height: 86%;
+	background:linear-gradient(to bottom, #3c1111 5%, #c11a1a 100%);
+	text-align:center;
+}
+#divEndTurnButton:hover {
+	background:linear-gradient(to bottom, #c11a1a 5%, #3c1111 100%);
+}
+
+#divEndTurnButton:active {
+	background:linear-gradient(to bottom, #c11a1a 5%, #3c1111 100%);
+}
+
+h2{
+	color:white;
+	text-shadow:none;
+}
+
+#divBottomButtons{
+    top: 91%;
+    position: absolute;
+    margin: 0 0 0 2%;
+	width:96%
+}
+
+#btnPause,#btnEndGame{
+	width:49%;
+}
+#btnBack{
+	width:100%;
+}
+
+#spnTimer div{
+	width:100%;
+	margin:0 0 10px 10px;
+}
+
+#divPage3{
+	text-align:center;
+	position:absolute;
+	width:100%;
+}
+
+.dimmed:after {
+  content: " ";
+  z-index: 10;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    #divPage1 {
+        background-position:left center;
+        padding:125px 0px 100px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+        top:35%;                      /* offset horizontal: half of image width and text area width */									  
+    }
+	#divPlayers{
+		position:absolute;
+		top:0%;
+	}
+	#divPlayButton{
+		margin: 2% 1% 0;
+	}
+	#lblStartGame{
+		margin-top:28%;
+	}
+	#divBottomButtons{
+		top:0;
+		margin:2% 2% 0;
+	}
+	#btnPause{
+		width: 25%;
+		position: fixed;
+		transform: rotate(270deg);
+		top: 66%;
+		left: 83%;
+	}
+	#btnEndGame{
+		width: 25%;
+		position: fixed;
+		transform: rotate(270deg);		
+		top: 19%;
+		left: 83%;
+	}
+	#btnBack{
+		width: 51%;
+		position: fixed;
+		top: 44%;
+		left: 69%;
+		margin: 0;
+		transform: rotate(270deg);
+	}
+	#lblEndTurn{
+		margin-top:17%;
+	}
+}
